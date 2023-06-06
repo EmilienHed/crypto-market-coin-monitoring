@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  title: 'Local Environement Heading',
+  apiURL: 'https://api.coingecko.com/api/v3/coins/list'
 };
 
 /*
