@@ -5,7 +5,7 @@
     </ion-title>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar (ionChange)="searchCoins($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -20,7 +20,7 @@
     <button ion-button [disabled]="currentPage === totalPages" (click)="goToNextPage()">Page suivante</button>
   </div>
   <ion-list>
-    <ion-item *ngFor="let coin of coins.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
+    <ion-item *ngFor="let coin of filteredCoins">
       {{ coin.name }}
     </ion-item>
   </ion-list>
