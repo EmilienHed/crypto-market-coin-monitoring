@@ -11,8 +11,9 @@ export class Tab1Page {
   currentPage: number = 1;
   totalPages: number = 0;
   itemsPerPage: number = 10;
-  filteredCoins: any[] = []; // New array to hold the filtered coins
-  searchQuery: string = ''; // Variable to hold the search query
+  filteredCoins: any[] = [];
+  searchQuery: string = '';
+  selectedCoin: any = null;
 
   constructor(private coingeckoService: CoingeckoService) {}
 
@@ -20,7 +21,7 @@ export class Tab1Page {
     this.coingeckoService.getCoins().subscribe(coins => {
       this.coins = coins;
       this.totalPages = Math.ceil(this.coins.length / this.itemsPerPage);
-      this.updateFilteredCoins(); // Update filtered coins initially
+      this.updateFilteredCoins();
     });
   }
 
@@ -46,15 +47,20 @@ export class Tab1Page {
 
   updateFilteredCoins() {
     if (this.searchQuery.trim() === '') {
-      // If searchQuery is empty, show paginated coins
       const startIndex = (this.currentPage - 1) * this.itemsPerPage;
       const endIndex = startIndex + this.itemsPerPage;
       this.filteredCoins = this.coins.slice(startIndex, endIndex);
     } else {
-      // If searchQuery is present, filter the coins and show all
       this.filteredCoins = this.coins.filter((coin) =>
         coin.name.toLowerCase().includes(this.searchQuery)
       );
     }
+  }
+
+  viewCoinDetails(id: string) {
+    this.coingeckoService.getCoinDetails(id).subscribe((coin) => {
+      console.log(coin)
+      this.selectedCoin = coin;
+    });
   }
 }
