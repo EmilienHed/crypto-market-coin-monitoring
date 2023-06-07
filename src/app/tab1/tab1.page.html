@@ -15,8 +15,12 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div class="pagination">
+    <button ion-button [disabled]="currentPage === 1" (click)="goToPreviousPage()">Page précédente</button>
+    <button ion-button [disabled]="currentPage === totalPages" (click)="goToNextPage()">Page suivante</button>
+  </div>
   <ion-list>
-    <ion-item *ngFor="let coin of coins">
+    <ion-item *ngFor="let coin of coins.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
       {{ coin.name }}
     </ion-item>
   </ion-list>
