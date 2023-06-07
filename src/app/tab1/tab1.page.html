@@ -5,7 +5,7 @@
     </ion-title>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-searchbar (ionChange)="searchCoins($event)" (keyup)="searchCoins($event)"></ion-searchbar>
+    <ion-searchbar [(ngModel)]="searchQuery" (ionChange)="searchCoins($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
