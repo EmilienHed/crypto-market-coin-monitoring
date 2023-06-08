@@ -4,6 +4,7 @@ import 'chartjs-adapter-moment';
 import * as moment from 'moment';
 import 'moment/locale/fr';
 import { CoingeckoService } from "../coingecko.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -21,8 +22,10 @@ export class Tab1Page {
   filteredCoins: any[] = [];
   searchQuery: string = '';
   selectedCoin: any = null;
+  coin: any;
+  Router: any;
 
-  constructor(private coingeckoService: CoingeckoService) {}
+  constructor(private coingeckoService: CoingeckoService, private router: Router) {}
 
   ionViewDidEnter() {
     this.coingeckoService.getCoins().subscribe(coins => {
@@ -64,9 +67,13 @@ export class Tab1Page {
     }
   }
 
+  redirection(): void {
+    this.router.navigate(['/detailsCoin'])
+  }
+
   viewCoinDetails(id: string) {
     this.coingeckoService.getCoinDetails(id).subscribe((coin) => {
-      this.selectedCoin = coin;
+    this.selectedCoin = coin;
     });
   }
 
