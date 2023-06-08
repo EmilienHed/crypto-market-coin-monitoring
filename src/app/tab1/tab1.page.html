@@ -30,6 +30,8 @@
       <p>Prix: {{ selectedCoin.market_data.current_price.usd }} USD</p>
       <p>Capitalisation boursière: {{ selectedCoin.market_data.market_cap.usd }} USD</p>
       <p>Volume échangé (24H): {{ selectedCoin.market_data.total_volume.usd }} USD</p>
+      <button ion-button (click)="showChart()">Afficher le cours de la monnaie</button>
     </div>
+    <canvas #chartCanvas></canvas>
   </ion-list>
 </ion-content>
