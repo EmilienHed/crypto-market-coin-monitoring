@@ -1,18 +1,35 @@
 .pagination {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-right: 5px;
-    margin-left: 5px;
-  
-    button {
-      width: 150px;
-      height: 40px;
-      background-color:dimgray;
-    }
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+
+  button {
+    width: 150px;
+    height: 40px;
+    background-color: dimgray;
   }
+}
+
 .selected-coin-details {
   padding-left: 5px;
   padding-right: 5px;
+
+  /* Ajouter les styles pour centrer le contenu */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+
+  img {
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-bottom: 5px;
+  }
 }
