@@ -1,21 +1,42 @@
+<<<<<<< HEAD
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import 'chartjs-adapter-moment';
 import * as moment from 'moment';
 import { CoingeckoService } from '../coingecko.service';
 import { Router } from '@angular/router';
+=======
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { Chart, registerables } from 'chart.js';
+import * as moment from 'moment';
+>>>>>>> 64701ef9a80c71ff735964bf31530d21deb7e8e1
 
 @Component({
   selector: 'app-tab1-details',
   templateUrl: './tab1-details.page.html',
   styleUrls: ['./tab1-details.page.scss'],
 })
+<<<<<<< HEAD
 export class Tab1DetailsPage {
   @ViewChild('chartCanvas', { static: true })
   chartCanvas!: ElementRef;
   chart: any;
   selectedCoin: any = null;
   filteredCoins: any[] = [];
+=======
+export class Tab1DetailsPage implements OnInit {
+  chartCanvas!: ElementRef;
+  chart: any;
+  coins: any[] = [];
+  currentPage: number = 1;
+  totalPages: number = 0;
+  itemsPerPage: number = 10;
+  filteredCoins: any[] = [];
+  searchQuery: string = '';
+  selectedCoin: any = null;
+  Router: any;
+  coingeckoService: any;
+>>>>>>> 64701ef9a80c71ff735964bf31530d21deb7e8e1
 
 
   constructor(private coingeckoService: CoingeckoService, private router: Router) {}
@@ -30,6 +51,7 @@ export class Tab1DetailsPage {
   }
 
   viewCoinDetails(id: string) {
+<<<<<<< HEAD
     this.coingeckoService.getCoinDetails(id).subscribe((coin) => {
     this.selectedCoin = coin;
     console.log(this.selectedCoin);
@@ -37,6 +59,13 @@ export class Tab1DetailsPage {
   }
 
 
+=======
+    this.coingeckoService.getCoinDetails(id).subscribe((coin: any) => {
+    this.selectedCoin = coin;
+    });
+  }
+
+>>>>>>> 64701ef9a80c71ff735964bf31530d21deb7e8e1
   showChart() {
     const chartData: { labels: string[], datasets: { label: string, data: number[], borderColor: string, fill: boolean }[] } = {
       labels: [],
@@ -47,19 +76,37 @@ export class Tab1DetailsPage {
         fill: false
       }]
     };
+<<<<<<< HEAD
 
     this.coingeckoService.getCoinPriceHistory(this.selectedCoin.id).subscribe((prices: any[]) => {
       prices.forEach(price => {
         const date = new Date(price[0]);
+=======
+  
+  
+    this.coingeckoService.getCoinPriceHistory(this.selectedCoin.id).subscribe((prices: any[]) => {
+
+      prices.forEach(price => {
+      const date = new Date(price[0]);
+>>>>>>> 64701ef9a80c71ff735964bf31530d21deb7e8e1
         chartData.labels.push(date.toLocaleDateString());
         chartData.datasets[0].data.push(price[1]);
       });
       console.log(chartData);
+<<<<<<< HEAD
 
       moment.locale('fr');
       Chart.register(...registerables);
 
       chartData.datasets[0].borderColor = 'lightblue';
+=======
+  
+      moment.locale('fr');
+      Chart.register(...registerables); // Enregistrer tous les modules nécessaires
+
+      chartData.datasets[0].borderColor = 'lightblue';
+      // Création du graphique
+>>>>>>> 64701ef9a80c71ff735964bf31530d21deb7e8e1
       this.chart = new Chart(this.chartCanvas.nativeElement as any, {
         type: 'line',
         data: chartData,

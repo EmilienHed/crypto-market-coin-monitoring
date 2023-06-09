@@ -1,8 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+<<<<<<< HEAD
     <ion-title>
       Details coin & Chart
     </ion-title>
+=======
+    <ion-title>Details de la monnaie</ion-title>
+>>>>>>> 64701ef9a80c71ff735964bf31530d21deb7e8e1
   </ion-toolbar>
 </ion-header>
 
@@ -12,6 +16,7 @@
       <ion-title size="large">tab1-details</ion-title>
     </ion-toolbar>
   </ion-header>
+<<<<<<< HEAD
 
   <ion-list>
     <ion-item *ngFor="let coin of filteredCoins" (click)="viewCoinDetails(coin.id)">
@@ -29,6 +34,17 @@
     <button (click)="showChart()">Afficher le cours de la monnaie</button>
   </div>
 
+=======
+  <div *ngIf="selectedCoin">
+    <h2>{{ selectedCoin.name }}</h2>
+    <p>{{ selectedCoin.description.fr }}</p>
+    <img [src]="selectedCoin.image.large" alt="Dogecoin Image">
+    <p>Prix: {{ selectedCoin.market_data.current_price.usd }} USD</p>
+    <p>Capitalisation boursière: {{ selectedCoin.market_data.market_cap.usd }} USD</p>
+    <p>Volume échangé (24H): {{ selectedCoin.market_data.total_volume.usd }} USD</p>
+    <button ion-button (click)="showChart()">Afficher le cours de la monnaie</button>
+  </div>
+>>>>>>> 64701ef9a80c71ff735964bf31530d21deb7e8e1
   <canvas #chartCanvas></canvas>
 </ion-content>
 
