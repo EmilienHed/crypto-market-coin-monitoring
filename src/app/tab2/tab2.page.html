@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Details coin & Chart
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,5 +13,21 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-list>
+    <ion-item *ngFor="let coin of filteredCoins" (click)="viewCoinDetails(coin.id)">
+      {{ coin.name }}
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="selectedCoin">
+    <h2>{{ selectedCoin?.name }}</h2>
+    <p>{{ selectedCoin?.description?.fr }}</p>
+    <img [src]="selectedCoin?.image?.large" alt="Coin Image">
+    <p>Prix: {{ selectedCoin?.market_data?.current_price?.usd }} USD</p>
+    <p>Capitalisation boursière: {{ selectedCoin?.market_data?.market_cap?.usd }} USD</p>
+    <p>Volume échangé (24H): {{ selectedCoin?.market_data?.total_volume?.usd }} USD</p>
+    <button (click)="showChart()">Afficher le cours de la monnaie</button>
+  </div>
+
+  <canvas #chartCanvas></canvas>
 </ion-content>

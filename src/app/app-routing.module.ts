@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: 'detailsCoin',
-    loadChildren: () => import('./tab1-details/tab1-details.module').then( m => m.Tab1DetailsPageModule)
+    loadChildren: () => import('./tab2/tab2.module').then(m => m.Tab2PageModule)
   }
 
 ];

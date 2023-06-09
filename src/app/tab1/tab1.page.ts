@@ -74,6 +74,7 @@ export class Tab1Page {
   viewCoinDetails(id: string) {
     this.coingeckoService.getCoinDetails(id).subscribe((coin) => {
     this.selectedCoin = coin;
+    console.log(this.selectedCoin);
     });
   }
 
