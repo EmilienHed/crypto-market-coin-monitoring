@@ -1,0 +1,29 @@
+<!-- Importer les modules nécessaires -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Crypto Coin List
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="searchQuery" (ionChange)="searchCoins($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <!-- <ion-title size="large">Tab 1</ion-title> -->
+    </ion-toolbar>
+  </ion-header>
+  <div class="pagination">
+    <button ion-button [disabled]="currentPage === 1" (click)="goToPreviousPage()">Page précédente</button>
+    <button ion-button [disabled]="currentPage === totalPages" (click)="goToNextPage()">Page suivante</button>
+  </div>
+  <ion-list>
+    <!-- Utiliser ngFor pour afficher la liste des crypto-monnaies -->
+    <ion-item *ngFor="let coin of filteredCoins" (click)="viewCoinDetails(coin)">
+      {{ coin.name }}
+    </ion-item>
+  </ion-list>
+</ion-content>

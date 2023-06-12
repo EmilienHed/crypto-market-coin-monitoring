@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Details de la monnaie</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">tab1-details</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div *ngIf="selectedCoin">
+    <h2>{{ selectedCoin.name }}</h2>
+    <p>{{ selectedCoin.description.fr }}</p>
+    <img [src]="selectedCoin.image.large" alt="Dogecoin Image">
+    <p>Prix: {{ selectedCoin.market_data.current_price.usd }} USD</p>
+    <p>Capitalisation boursière: {{ selectedCoin.market_data.market_cap.usd }} USD</p>
+    <p>Volume échangé (24H): {{ selectedCoin.market_data.total_volume.usd }} USD</p>
+    <button ion-button (click)="showChart()">Afficher le cours de la monnaie</button>
+  </div>
+  <canvas #chartCanvas></canvas>
+</ion-content>

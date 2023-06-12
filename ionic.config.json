@@ -1,0 +1,8 @@
+{
+  "name": "CryptoMarketCoinMonitoring",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "77ce2187"
+}

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Stats</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="chart-container">
+  <ion-card *ngIf="crypto">
+    <ion-card-header>
+      <ion-card-title>{{ crypto.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Symbol</ion-label>
+          <ion-note slot="end">{{ crypto.symbol }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Current Price</ion-label>
+          <ion-note slot="end">{{ crypto.market_data.current_price.usd }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Market Cap</ion-label>
+          <ion-note slot="end">{{ crypto.market_data.market_cap.usd }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>24h Volume</ion-label>
+          <ion-note slot="end">{{ crypto.market_data.total_volume.usd }}</ion-note>
+        </ion-item>
+      </ion-list>
+      <canvas id="cryptoChart" width="400" height="200"></canvas>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

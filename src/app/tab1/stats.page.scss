@@ -1,0 +1,21 @@
+/* stats.page.scss */
+
+ion-content {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.stats-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.stats-info {
+  font-size: 16px;
+  color: #888;
+}
+
+#cryptoChart {
+  flex-grow: 1;
+}
