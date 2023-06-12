@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <!-- Importer les modules nécessaires -->
+=======
+>>>>>>> de0472b54fd71bc62e53825a043dca3bee9e2636
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
@@ -21,9 +24,28 @@
     <button ion-button [disabled]="currentPage === totalPages" (click)="goToNextPage()">Page suivante</button>
   </div>
   <ion-list>
+<<<<<<< HEAD
     <!-- Utiliser ngFor pour afficher la liste des crypto-monnaies -->
     <ion-item *ngFor="let coin of filteredCoins" (click)="viewCoinDetails(coin)">
       {{ coin.name }}
     </ion-item>
   </ion-list>
 </ion-content>
+=======
+    <button (click)="redirection()">
+    <ion-item *ngFor="let coin of filteredCoins" (click)="viewCoinDetails(coin.id)">
+      {{ coin.name }}
+    </ion-item>
+    </button>
+    <!-- <div *ngIf="selectedCoin">
+      <h2>{{ selectedCoin?.name }}</h2>
+      <p>{{ selectedCoin?.description?.fr }}</p>
+      <img [src]="selectedCoin?.image?.large" alt="Coin Image">
+      <p>Prix: {{ selectedCoin?.market_data?.current_price?.usd }} USD</p>
+      <p>Capitalisation boursière: {{ selectedCoin?.market_data?.market_cap?.usd }} USD</p>
+      <p>Volume échangé (24H): {{ selectedCoin?.market_data?.total_volume?.usd }} USD</p>
+      <button (click)="showChart()">Afficher le cours de la monnaie</button>
+    </div> -->
+  </ion-list>
+</ion-content>
+>>>>>>> de0472b54fd71bc62e53825a043dca3bee9e2636

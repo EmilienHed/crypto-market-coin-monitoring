@@ -1,6 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+<<<<<<< HEAD
     <ion-title>Details de la monnaie</ion-title>
+=======
+<<<<<<< HEAD
+    <ion-title>
+      Details coin & Chart
+    </ion-title>
+=======
+    <ion-title>Details de la monnaie</ion-title>
+>>>>>>> 64701ef9a80c71ff735964bf31530d21deb7e8e1
+>>>>>>> de0472b54fd71bc62e53825a043dca3bee9e2636
   </ion-toolbar>
 </ion-header>
 
@@ -10,6 +20,28 @@
       <ion-title size="large">tab1-details</ion-title>
     </ion-toolbar>
   </ion-header>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+  <ion-list>
+    <ion-item *ngFor="let coin of filteredCoins" (click)="viewCoinDetails(coin.id)">
+      {{ coin.name }}
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="selectedCoin">
+    <h2>{{ selectedCoin?.name }}</h2>
+    <p>{{ selectedCoin?.description?.fr }}</p>
+    <img [src]="selectedCoin?.image?.large" alt="Coin Image">
+    <p>Prix: {{ selectedCoin?.market_data?.current_price?.usd }} USD</p>
+    <p>Capitalisation boursière: {{ selectedCoin?.market_data?.market_cap?.usd }} USD</p>
+    <p>Volume échangé (24H): {{ selectedCoin?.market_data?.total_volume?.usd }} USD</p>
+    <button (click)="showChart()">Afficher le cours de la monnaie</button>
+  </div>
+
+=======
+>>>>>>> de0472b54fd71bc62e53825a043dca3bee9e2636
   <div *ngIf="selectedCoin">
     <h2>{{ selectedCoin.name }}</h2>
     <p>{{ selectedCoin.description.fr }}</p>
@@ -19,5 +51,12 @@
     <p>Volume échangé (24H): {{ selectedCoin.market_data.total_volume.usd }} USD</p>
     <button ion-button (click)="showChart()">Afficher le cours de la monnaie</button>
   </div>
+<<<<<<< HEAD
   <canvas #chartCanvas></canvas>
 </ion-content>
+=======
+>>>>>>> 64701ef9a80c71ff735964bf31530d21deb7e8e1
+  <canvas #chartCanvas></canvas>
+</ion-content>
+
+>>>>>>> de0472b54fd71bc62e53825a043dca3bee9e2636

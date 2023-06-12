@@ -9,6 +9,10 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> de0472b54fd71bc62e53825a043dca3bee9e2636
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
