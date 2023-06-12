@@ -27,6 +27,7 @@ export class Tab1Page {
 
   constructor(private coingeckoService: CoingeckoService, private router: Router) {}
 
+  
   ionViewDidEnter() {
     this.coingeckoService.getCoins().subscribe(coins => {
       this.coins = coins;
@@ -74,6 +75,7 @@ export class Tab1Page {
   viewCoinDetails(id: string) {
     this.coingeckoService.getCoinDetails(id).subscribe((coin) => {
     this.selectedCoin = coin;
+    this.router.navigate(['/detailsCoin', id]);
     console.log(this.selectedCoin);
     });
   }
